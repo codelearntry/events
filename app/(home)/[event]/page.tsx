@@ -1,3 +1,4 @@
+import AttendeeList from '../../../src/components/AttendeeList'
 import createClient from '../../../src/supabase/server'
 import RegistrationForm from './RegistrationForm'
 
@@ -22,13 +23,14 @@ export default async function Event({
   const event = (data?.length ?? 0) > 0 && data![0]
 
   return event ? (
-    <div className='max-w-2xl mx-auto'>
+    <div className='flex flex-col max-w-2xl gap-6 mx-auto'>
       <section className='mb-4'>
         <span className='text-2xl text-green-800'>
           Register for {event.name} event here.
         </span>
       </section>
       <RegistrationForm event={event} />
+      {attendees && <AttendeeList attendees={attendees} />}
     </div>
   ) : (
     <span>No events.</span>

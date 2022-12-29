@@ -203,7 +203,7 @@ const RegistrationForm = ({
                 id='zone1'
                 type='radio'
                 onChange={onChange}
-                value={attendeeState?.zone}
+                value='zone1'
                 name='zone'
                 className='w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600'
               />
@@ -226,7 +226,7 @@ const RegistrationForm = ({
                 id='zone2'
                 type='radio'
                 onChange={onChange}
-                value={attendeeState?.zone}
+                value='zone2'
                 name='zone'
                 className='w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600'
               />
@@ -247,10 +247,9 @@ const RegistrationForm = ({
             <div className='flex items-center px-4 border border-gray-300 rounded dark:border-gray-700'>
               <input
                 id='zone3'
-                data-popover-target='popover-default'
                 type='radio'
                 onChange={onChange}
-                value={attendeeState?.zone}
+                value='zone3'
                 name='zone'
                 className='w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600'
               />
@@ -273,9 +272,83 @@ const RegistrationForm = ({
 
         <div className='mb-6'>
           <label
+            htmlFor='payment_mode'
+            className='block mb-2 text-sm font-medium text-gray-900 dark:text-white'>
+            Payment method
+          </label>
+          <div className='flex flex-row gap-4'>
+            <div className='flex items-center pl-4 border border-gray-300 rounded w-28 dark:border-gray-700'>
+              <input
+                id='cheque'
+                type='radio'
+                value='cheque'
+                checked={attendeeState?.payment_mode == 'cheque'}
+                onChange={onChange}
+                name='payment_mode'
+                className='w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600'
+              />
+              <label
+                htmlFor='cheque'
+                className='w-full py-4 ml-2 text-sm font-medium text-gray-900 dark:text-gray-300'>
+                Cheque
+              </label>
+            </div>
+            <div className='flex items-center pl-4 border border-gray-300 rounded w-28 dark:border-gray-700'>
+              <input
+                id='dd'
+                type='radio'
+                onChange={onChange}
+                checked={attendeeState?.payment_mode == 'dd'}
+                value='dd'
+                name='payment_mode'
+                className='w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600'
+              />
+              <label
+                htmlFor='dd'
+                className='w-full py-4 ml-2 text-sm font-medium text-gray-900 dark:text-gray-300'>
+                DD
+              </label>
+            </div>
+            <div className='flex items-center pl-4 border border-gray-300 rounded w-28 dark:border-gray-700'>
+              <input
+                id='upi'
+                type='radio'
+                onChange={onChange}
+                value='upi'
+                checked={attendeeState?.payment_mode == 'upi'}
+                name='payment_mode'
+                className='w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600'
+              />
+              <label
+                htmlFor='upi'
+                className='w-full py-4 ml-2 text-sm font-medium text-gray-900 dark:text-gray-300'>
+                UPI
+              </label>
+            </div>
+            <div className='flex items-center pl-4 border border-gray-300 rounded w-28 dark:border-gray-700'>
+              <input
+                id='others'
+                checked={attendeeState?.payment_mode == 'others'}
+                onChange={onChange}
+                type='radio'
+                value='others'
+                name='payment_mode'
+                className='w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600'
+              />
+              <label
+                htmlFor='others'
+                className='w-full py-4 ml-2 text-sm font-medium text-gray-900 dark:text-gray-300'>
+                OTHER
+              </label>
+            </div>
+          </div>
+        </div>
+
+        <div className='mb-6'>
+          <label
             htmlFor='company'
             className='block mb-2 text-sm font-medium text-gray-900 dark:text-white'>
-            Payment details
+            Payment reference
           </label>
           <div className='flex'>
             <label
@@ -283,60 +356,7 @@ const RegistrationForm = ({
               className='mb-2 text-sm font-medium text-gray-900 sr-only dark:text-white'>
               Reference number
             </label>
-            <button
-              id='payment_mode'
-              data-dropdown-toggle='dropdown'
-              className='flex-shrink-0 z-10 inline-flex items-center py-2.5 px-4 text-sm font-medium text-center  bg-gray-100 border border-gray-300 dark:border-gray-700 dark:text-white rounded-l-lg hover:bg-gray-200 focus:ring-4 focus:outline-none focus:ring-green-300 dark:bg-gray-600 dark:hover:bg-gray-700 dark:focus:ring-green-800'
-              type='button'>
-              Payment mode
-              <svg
-                aria-hidden='true'
-                className='w-4 h-4 ml-1'
-                fill='currentColor'
-                viewBox='0 0 20 20'
-                xmlns='http://www.w3.org/2000/svg'>
-                <path
-                  fillRule='evenodd'
-                  d='M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z'
-                  clipRule='evenodd'></path>
-              </svg>
-            </button>
-            <div
-              id='dropdown'
-              className='z-10 hidden bg-white divide-y divide-gray-100 rounded shadow w-44 dark:bg-gray-700'>
-              <ul
-                className='py-1 text-sm text-gray-700 dark:text-gray-200'
-                aria-labelledby='dropdown-button'>
-                <li>
-                  <a
-                    href='#'
-                    className='block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white focus:ring-4 '>
-                    Cheque
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href='#'
-                    className='block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white'>
-                    DD
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href='#'
-                    className='block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white'>
-                    UPI
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href='#'
-                    className='block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white'>
-                    OTHERS
-                  </a>
-                </li>
-              </ul>
-            </div>
+
             <div className='relative w-full'>
               <input
                 type='text'
@@ -344,7 +364,7 @@ const RegistrationForm = ({
                 id='payment_reference'
                 name='payment_reference'
                 value={attendeeState?.payment_reference}
-                className='block p-2.5 w-full z-20 text-sm text-gray-900 bg-gray-50 rounded-r-lg border-l-gray-100 border-l-2 border border-gray-300 focus:ring-green-500 focus:border-green-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:border-green-500'
+                className='bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-green-500 dark:focus:border-green-500'
                 placeholder='Payment reference'
                 required
               />
