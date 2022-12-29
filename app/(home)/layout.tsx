@@ -1,9 +1,9 @@
 import 'server-only'
 
-import SupabaseListener from '../src/supabase/listener'
-import createClient from '../src/supabase/server'
-import Footer from './Footer'
-import './globals.css'
+import Footer from '../../src/components/Footer'
+import SupabaseListener from '../../src/supabase/listener'
+import createClient from '../../src/supabase/server'
+import '../globals.css'
 import NavBar from './NavBar'
 
 export const revalidate = 0

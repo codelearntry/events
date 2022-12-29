@@ -3,7 +3,7 @@ import { User } from '@supabase/supabase-js'
 import 'flowbite'
 import { useRouter } from 'next/navigation'
 import { useEffect, useState } from 'react'
-import supabase from '../src/supabase/browser'
+import supabase from '../../src/supabase/browser'
 const NavBar = () => {
   const router = useRouter()
   const [user, setUser] = useState<User>()
@@ -31,7 +31,7 @@ const NavBar = () => {
           <ul className='flex flex-col p-4 mt-4 rounded-lg md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700'>
             <li>
               <a
-                href='#'
+                href='/'
                 className='block py-2 pl-3 pr-4 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 dark:text-white'
                 aria-current='page'>
                 Home

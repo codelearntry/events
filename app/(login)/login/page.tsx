@@ -1,4 +1,4 @@
-import createClient from '../../src/supabase/server'
+import createClient from '../../../src/supabase/server'
 import Login from './Login'
 
 const page = () => {
