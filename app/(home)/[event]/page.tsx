@@ -9,16 +9,28 @@ export default async function Event({
   searchParams?: { [key: string]: string | string[] | undefined }
 }) {
   const supabase = createClient()
-  let resp = await supabase
+  const { data, error } = await supabase
     .from('events.event')
     .select('*')
     .eq('id', params.event)
 
-  console.log(resp)
+  const { data: attendees, error: attendeeError } = await supabase
+    .from('events.attendee')
+    .select('*')
+    .eq('event_id', params.event)
 
-  return (
-    <div>
-      <RegistrationForm attendee={resp.data![0]} />
+  const event = (data?.length ?? 0) > 0 && data![0]
+
+  return event ? (
+    <div className='max-w-2xl'>
+      <section className='mb-4'>
+        <span className='text-2xl text-green-800'>
+          Register for {event.name} event here.
+        </span>
+      </section>
+      <RegistrationForm event={event} />
     </div>
+  ) : (
+    <span>No events.</span>
   )
 }

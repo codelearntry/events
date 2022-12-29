@@ -19,11 +19,11 @@ export default async function RootLayout({
   } = await supabase.auth.getSession()
 
   return (
-    <html lang='en' className='w-full h-full bg-gray-300 '>
+    <html lang='en' className='w-full h-full text-lg bg-gray-100'>
       <head />
       <body className='flex flex-col justify-between w-full h-full'>
         <SupabaseListener accessToken={session?.access_token} /> <NavBar />
-        <main className='flex-grow p-6 '>{children}</main>
+        <main className='items-center flex-grow p-6 '>{children}</main>
         <Footer />
       </body>
     </html>
