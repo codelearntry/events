@@ -23,7 +23,7 @@ export default async function RootLayout({
       <head />
       <body className='flex flex-col justify-between w-full h-full'>
         <SupabaseListener accessToken={session?.access_token} /> <NavBar />
-        <main className='items-center flex-grow p-6 '>{children}</main>
+        <main className='items-center flex-grow p-6'>{children}</main>
         <Footer />
       </body>
     </html>

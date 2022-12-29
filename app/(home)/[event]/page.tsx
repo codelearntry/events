@@ -22,7 +22,7 @@ export default async function Event({
   const event = (data?.length ?? 0) > 0 && data![0]
 
   return event ? (
-    <div className='max-w-2xl'>
+    <div className='max-w-2xl mx-auto'>
       <section className='mb-4'>
         <span className='text-2xl text-green-800'>
           Register for {event.name} event here.

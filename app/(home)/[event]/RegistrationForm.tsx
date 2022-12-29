@@ -197,51 +197,80 @@ const RegistrationForm = ({
             Zone
           </label>
 
-          <div className='inline-flex '>
-            <div className='flex items-center mr-4'>
+          <div className='inline-flex gap-4'>
+            <div className='flex items-center px-4 border border-gray-300 rounded dark:border-gray-700'>
               <input
                 id='zone1'
                 type='radio'
-                value=''
+                onChange={onChange}
+                value={attendeeState?.zone}
                 name='zone'
-                className='w-4 h-4 text-green-600 bg-gray-100 border-gray-300 focus:ring-green-500 dark:focus:ring-green-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600'
+                className='w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600'
               />
+
               <label
                 htmlFor='zone1'
-                className='ml-2 text-sm font-medium text-gray-900 dark:text-gray-300'>
-                Zone 1
+                className='inline-flex items-center justify-between w-full p-5 text-gray-500 cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 dark:peer-checked:text-blue-500 peer-checked:border-blue-600 peer-checked:text-blue-600 hover:text-gray-600 hover:bg-gray-100 dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700'>
+                <div className='block'>
+                  <div className='w-full text-lg font-semibold'>
+                    Zone 1 (Free)
+                  </div>
+                  <div className='w-full'>
+                    Warangal, Khammam, Nalgonda, Mahaboobnagar
+                  </div>
+                </div>
               </label>
             </div>
-            <div className='flex items-center mr-4'>
+            <div className='flex items-center px-4 border border-gray-300 rounded dark:border-gray-700'>
               <input
                 id='zone2'
                 type='radio'
-                value=''
+                onChange={onChange}
+                value={attendeeState?.zone}
                 name='zone'
-                className='w-4 h-4 text-green-600 bg-gray-100 border-gray-300 focus:ring-green-500 dark:focus:ring-green-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600'
+                className='w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600'
               />
               <label
                 htmlFor='zone2'
-                className='ml-2 text-sm font-medium text-gray-900 dark:text-gray-300'>
-                Zone 2
+                className='inline-flex items-center justify-between w-full p-5 text-gray-500 cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 dark:peer-checked:text-blue-500 peer-checked:border-blue-600 peer-checked:text-blue-600 hover:text-gray-600 hover:bg-gray-100 dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700'>
+                <div className='block'>
+                  <div className='w-full text-lg font-semibold'>
+                    Zone 2 (Free)
+                  </div>
+                  <div className='w-full'>
+                    Hyderabad, Rangareddy, Vikarabad, Medchal, Samshabhad
+                  </div>
+                </div>
               </label>
             </div>
-            <div className='flex items-center mr-4'>
+
+            <div className='flex items-center px-4 border border-gray-300 rounded dark:border-gray-700'>
               <input
                 id='zone3'
+                data-popover-target='popover-default'
                 type='radio'
-                value=''
+                onChange={onChange}
+                value={attendeeState?.zone}
                 name='zone'
-                className='w-4 h-4 text-green-600 bg-gray-100 border-gray-300 focus:ring-green-500 dark:focus:ring-green-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600'
+                className='w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600'
               />
+
               <label
                 htmlFor='zone3'
-                className='ml-2 text-sm font-medium text-gray-900 dark:text-gray-300'>
-                Zone 3
+                className='inline-flex items-center justify-between w-full p-5 text-gray-500 cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 dark:peer-checked:text-blue-500 peer-checked:border-blue-600 peer-checked:text-blue-600 hover:text-gray-600 hover:bg-gray-100 dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700'>
+                <div className='block'>
+                  <div className='w-full text-lg font-semibold'>
+                    Zone 3 (₹2000)
+                  </div>
+                  <div className='w-full'>
+                    Medak, Nijamabad, Adilabad, Karimnagar
+                  </div>
+                </div>
               </label>
             </div>
           </div>
         </div>
+
         <div className='mb-6'>
           <label
             htmlFor='company'
