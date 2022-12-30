@@ -86,9 +86,7 @@ const RegistrationForm = ({
               phone_number: attendeeState!.phone_number,
               user_id: attendeeState!.user_id,
               zone: attendeeState!.zone,
-              code:
-                attendeeState!.code ??
-                event.attended_code_prefix + (event.id + 1),
+              code: attendeeState!.code,
             }
             let resp = await supabase.from('events.attendee').insert([post])
             if (!resp.error) {

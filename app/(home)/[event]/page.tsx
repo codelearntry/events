@@ -1,3 +1,4 @@
+import IEvent from '../../../src/models/IEvent'
 import createClient from '../../../src/supabase/server'
 import RegistrationForm from './RegistrationForm'
 
@@ -25,7 +26,7 @@ export default async function Event({
     .eq('user_id', currentUser?.id)
     .maybeSingle()
 
-  const event = (data?.length ?? 0) > 0 && data![0]
+  const event: IEvent = (data?.length ?? 0) > 0 && data![0]
 
   return event ? (
     <div className='flex flex-col max-w-2xl gap-6 mx-auto'>
@@ -58,8 +59,11 @@ export default async function Event({
             </h3>
           </div>
           <div className='mt-2 mb-4 text-sm text-green-700 dark:text-green-800'>
-            Your registration code is <code>{attendee.code}</code>. You can
-            download the badge here.
+            Your registration code is{' '}
+            <code>
+              {attendee.code ?? `${event.attended_code_prefix}${attendee.id}`}
+            </code>
+            . You can download the badge here.
           </div>
           <div className='flex'>
             <button
