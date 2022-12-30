@@ -2,6 +2,8 @@ import IEvent from '../../../src/models/IEvent'
 import createClient from '../../../src/supabase/server'
 import RegistrationForm from './RegistrationForm'
 
+export const revalidate = 0
+
 export default async function Event({
   params,
   searchParams,
