@@ -73,7 +73,6 @@ const RegistrationForm = ({
             e.preventDefault()
             setLoading(true)
             let post: Omit<IAttendee, 'id'> = {
-              code: attendeeState!.code,
               confirmed: attendeeState!.confirmed,
               created_at: attendeeState!.created_at,
               email: attendeeState!.email,
@@ -87,6 +86,9 @@ const RegistrationForm = ({
               phone_number: attendeeState!.phone_number,
               user_id: attendeeState!.user_id,
               zone: attendeeState!.zone,
+              code:
+                attendeeState!.code ??
+                event.attended_code_prefix + (event.id + 1),
             }
             let resp = await supabase.from('events.attendee').insert([post])
             if (!resp.error) {
