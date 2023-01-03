@@ -1,5 +1,5 @@
-import IEvent from '../../../src/models/IEvent'
-import createClient from '../../../src/supabase/server'
+import IEvent from '../../../../src/models/IEvent'
+import createClient from '../../../../src/supabase/server'
 import RegistrationForm from './RegistrationForm'
 
 export const revalidate = 0
@@ -12,14 +12,14 @@ export default async function Event({
   searchParams?: { [key: string]: string | string[] | undefined }
 }) {
   const supabase = createClient()
+  const currentUser = await (
+    await supabase.auth.getSession()
+  ).data.session?.user
+
   const { data, error } = await supabase
     .from('events.event')
     .select('*')
     .eq('id', params.event)
-
-  const currentUser = await (
-    await supabase.auth.getSession()
-  ).data.session?.user
 
   const { data: attendee, error: attendeeError } = await supabase
     .from('events.attendee')

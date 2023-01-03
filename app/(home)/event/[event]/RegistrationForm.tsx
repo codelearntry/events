@@ -2,10 +2,10 @@
 
 import { User } from '@supabase/auth-helpers-nextjs'
 import { useEffect, useState } from 'react'
-import Dialog from '../../../src/components/Dialog'
-import IAttendee from '../../../src/models/IAttendee'
-import IEvent from '../../../src/models/IEvent'
-import supabase from '../../../src/supabase/browser'
+import Dialog from '../../../../src/components/Dialog'
+import IAttendee from '../../../../src/models/IAttendee'
+import IEvent from '../../../../src/models/IEvent'
+import supabase from '../../../../src/supabase/browser'
 
 const RegistrationForm = ({
   event,
