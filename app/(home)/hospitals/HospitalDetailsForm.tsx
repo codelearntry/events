@@ -84,6 +84,7 @@ export default function Page({ hospitals }: { hospitals: IHospital[] }) {
           </label>
           <ComboBox
             name={'DISTCODE'}
+            placeholder={'Select district'}
             options={[...districts]}
             onSelected={(option) => {
               console.log('se', option)
@@ -99,6 +100,7 @@ export default function Page({ hospitals }: { hospitals: IHospital[] }) {
           </label>
           <ComboBox
             name='Id'
+            placeholder={'Select hospital'}
             options={hospitals
               .filter((x) => x.DISTCODE == selectedDistrict?.id)
               .map((x) => ({ id: x.Id, name: x.HOSPITALNAME }))}
