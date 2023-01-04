@@ -21,9 +21,9 @@ export default async function RootLayout({
   return (
     <html lang='en' className='w-full h-full text-lg bg-gray-100'>
       <head />
-      <body className='flex flex-col justify-between w-full h-full'>
+      <body className='flex flex-col justify-between w-full h-full '>
         <SupabaseListener accessToken={session?.access_token} /> <NavBar />
-        <main className='items-center flex-grow p-6'>{children}</main>
+        <main className='items-center flex-grow max-w-4xl p-6'>{children}</main>
         <Footer />
       </body>
     </html>

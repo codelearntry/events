@@ -19,7 +19,7 @@ const NavBar = () => {
 
   return (
     <nav className=' border-gray-200 px-2 sm:px-4 py-2.5 rounded dark:bg-gray-900'>
-      <div className='container flex flex-wrap items-center justify-between mx-auto'>
+      <div className='flex flex-wrap items-center justify-between '>
         <Link href='/' className='flex items-center'>
           <Image
             className='pr-4'
@@ -29,10 +29,10 @@ const NavBar = () => {
             src={logo}
           />
           <span className='self-center text-xl font-semibold whitespace-nowrap dark:text-white'>
-            Events
+            THANA - Registered Hospital details
           </span>
         </Link>
-        <section className='flex gap-6'>
+        <section className='hidden gap-6 '>
           <div
             className='items-center justify-between hidden w-full md:flex md:w-auto '
             id='mobile-menu-2'>

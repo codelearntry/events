@@ -3,9 +3,13 @@ import { Fragment } from 'react'
 
 export default function MyModal({
   isOpen,
+  heading,
+  message,
   onClose,
 }: {
   isOpen: boolean
+  heading: string
+  message: string
   onClose: () => void
 }) {
   return (
@@ -36,13 +40,10 @@ export default function MyModal({
                 <Dialog.Title
                   as='h3'
                   className='text-lg font-medium leading-6 text-gray-900'>
-                  Registration submitted
+                  {heading}
                 </Dialog.Title>
                 <div className='mt-2'>
-                  <p className='text-sm text-gray-500'>
-                    We will verify the details and confirm your registration,
-                    please check this page again for confirmation details.
-                  </p>
+                  <p className='text-sm text-gray-500'>{message}</p>
                 </div>
 
                 <div className='mt-4'>
