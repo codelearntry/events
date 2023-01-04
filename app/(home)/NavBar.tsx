@@ -29,7 +29,7 @@ const NavBar = () => {
             src={logo}
           />
           <span className='self-center text-xl font-semibold whitespace-nowrap dark:text-white'>
-            THANA - Registered Hospital details
+            THANA - Registered Hospital Details update form
           </span>
         </Link>
         <section className='hidden gap-6 '>
