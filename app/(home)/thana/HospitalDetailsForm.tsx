@@ -27,8 +27,9 @@ export default function Page({ hospitals }: { hospitals: IHospital[] }) {
       .update({
         ADDRESS: hospital?.ADDRESS,
         MOBILENO: hospital?.MOBILENO,
+        EMAIL: hospital?.EMAIL,
         MOBILE2: hospital?.MOBILE2,
-        ModifiedOn: Date.now(),
+        ModifiedOn: new Date(),
       })
       .eq('Id', hospital?.Id)
 
@@ -186,7 +187,6 @@ export default function Page({ hospitals }: { hospitals: IHospital[] }) {
           </label>
           <input
             type='email'
-            readOnly
             id='EMAIL'
             onChange={onChange}
             name='EMAIL'
