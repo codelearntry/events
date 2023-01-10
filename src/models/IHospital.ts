@@ -13,4 +13,6 @@ export interface IHospital {
   MOBILENO: string
   MOBILE2: string
   EMAIL: string
+  CreatedOn: Date
+  ModifiedOn?: Date
 }

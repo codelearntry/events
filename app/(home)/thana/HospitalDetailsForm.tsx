@@ -28,6 +28,7 @@ export default function Page({ hospitals }: { hospitals: IHospital[] }) {
         ADDRESS: hospital?.ADDRESS,
         MOBILENO: hospital?.MOBILENO,
         MOBILE2: hospital?.MOBILE2,
+        ModifiedOn: Date.now(),
       })
       .eq('Id', hospital?.Id)
 
@@ -186,7 +187,6 @@ export default function Page({ hospitals }: { hospitals: IHospital[] }) {
           <input
             type='email'
             readOnly
-            disabled
             id='EMAIL'
             onChange={onChange}
             name='EMAIL'
